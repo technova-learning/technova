@@ -5,616 +5,598 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HTML Step 1 | TechNova</title>
-  <meta name="description" content="Learn HTML step by step with TechNova.">
+    <title>TechNova | Learn Technology</title>
 
-<meta name="author" content="TechNova">
+    <meta name="description"
+        content="TechNova - Learn HTML, CSS, JavaScript and technology step by step.">
 
-<meta name="keywords" content="HTML, CSS, JavaScript, coding, TechNova">
+    <meta name="author" content="TechNova">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1020;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 16, 32, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #00d9ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00d9ff;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: #00d9ff;
+            filter: blur(140px);
+            opacity: 0.15;
+            top: 10%;
+            left: 10%;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: #7c3aed;
+            filter: blur(140px);
+            opacity: 0.15;
+            bottom: 10%;
+            right: 10%;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+            animation: fadeUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 85px);
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #00d9ff;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #b8c1d9;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            margin: 8px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #00d9ff;
+            color: #061018;
+        }
+
+        .primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+
+        .secondary {
+            border: 1px solid #00d9ff;
+            color: #00d9ff;
+        }
+
+        .secondary:hover {
+            background: #00d9ff;
+            color: #061018;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #9da8c0;
+        }
+
+        /* COURSE CARDS */
+
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 20px;
+            transition: 0.35s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #00d9ff;
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.12);
+        }
+
+        .card-icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #aeb8ce;
+            margin-bottom: 22px;
+        }
+
+        .card-btn {
+            display: inline-block;
+            color: #00d9ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ABOUT */
+
+        .about {
+            text-align: center;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .about h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: #b8c1d9;
+            font-size: 18px;
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 15px;
+        }
+
+        .feature h3 {
+            margin: 12px 0;
+        }
+
+        .feature p {
+            color: #9da8c0;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: #8994ad;
+        }
+
+        footer strong {
+            color: #00d9ff;
+        }
+
+        /* ANIMATION */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .section-title h2,
+            .about h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>HTML Step 1</h1>
+    <!-- NAVIGATION -->
 
-    <p>Welcome to your first HTML lesson.</p>
+    <nav>
 
-    <hr>
+        <div class="logo">
+            Tech<span>Nova</span>
+        </div>
 
-    <h2>1. What is HTML?</h2>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
 
-    <p>
-        HTML stands for HyperText Markup Language.
-        It is used to create the basic structure of a webpage.
-    </p>
+    </nav>
 
-    <h2>2. Why do we use HTML?</h2>
 
-    <p>
-        HTML tells the browser what content should appear
-        on a webpage, such as headings, paragraphs, links and images.
-    </p>
+    <!-- HERO -->
 
-    <h2>3. What are HTML Tags?</h2>
+    <section class="hero" id="home">
 
-    <p>
-        HTML tags are special words written inside angle brackets.
-        They tell the browser how to display the content.
-    </p>
+        <div class="hero-content">
 
-    <h3>Common HTML Tags</h3>
+            <h1>
+                Learn.
+                <span>Build.</span>
+                Grow.
+            </h1>
 
-    <p>
-        &lt;h1&gt; is used for the main heading.
-    </p>
+            <p>
+                Welcome to TechNova — your place to learn
+                coding and technology step by step.
+            </p>
 
-    <p>
-        &lt;h2&gt; is used for a section heading.
-    </p>
+            <div class="hero-buttons">
 
-    <p>
-        &lt;p&gt; is used for a paragraph.
-    </p>
+                <a href="#courses" class="btn primary">
+                    Start Learning
+                </a>
 
-    <h2>Your First Practice</h2>
+                <a href="#about" class="btn secondary">
+                    Explore TechNova
+                </a>
 
-    <p>
-        Try creating your own heading and paragraph using HTML.
-    </p>
-<hr>
+            </div>
 
-<h2>4. HTML Headings</h2>
+        </div>
 
-<p>
-HTML provides six levels of headings, from h1 to h6.
-</p>
-
-<h1>Heading 1</h1>
-<h2>Heading 2</h2>
-<h3>Heading 3</h3>
-<h4>Heading 4</h4>
-<h5>Heading 5</h5>
-<h6>Heading 6</h6>
-
-<h2>5. Paragraphs and Line Breaks</h2>
-
-<p>
-A paragraph is used to display a block of text on a webpage.
-</p>
-
-<p>
-My goal is to learn coding.<br>
-I want to build websites.<br>
-TechNova is my project.
-</p>
-  <hr>
-
-<h2>6. HTML Links</h2>
-
-<p>
-HTML links are used to connect one webpage to another webpage.
-</p>
-
-<a href="https://www.google.com">Visit Google</a>
-  <hr>
-
-<h2>7. HTML Images</h2>
-
-<p>
-Images can make a webpage more attractive and easier to understand.
-</p>
-
-  <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" width="300">
-<hr>
-
-<h2>8. HTML Lists</h2>
-
-<p>
-Lists are used to display multiple items in an organized way.
-</p>
-
-<h3>Unordered List</h3>
-
-<ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-</ul>
-
-<h3>Ordered List</h3>
-
-<ol>
-    <li>Learn HTML</li>
-    <li>Learn CSS</li>
-    <li>Learn JavaScript</li>
-</ol>
-  <hr>
-
-<h2>9. HTML Tables</h2>
-
-<p>
-Tables are used to display information in rows and columns.
-</p>
-
-<table border="1">
-
-    <tr>
-        <th>Course</th>
-        <th>Level</th>
-    </tr>
-
-    <tr>
-        <td>HTML</td>
-        <td>Beginner</td>
-    </tr>
-
-    <tr>
-        <td>CSS</td>
-        <td>Beginner</td>
-    </tr>
-
-    <tr>
-        <td>JavaScript</td>
-        <td>Intermediate</td>
-    </tr>
-
-</table>
-  <hr>
-
-<h2>10. HTML Forms</h2>
-
-<p>
-Forms are used to collect information from users.
-</p>
-
-<form>
-
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name">
-
-    <br><br>
-
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email">
-
-    <br><br>
-
-    <label for="message">Message:</label><br>
-    <textarea id="message" name="message"></textarea>
-
-    <br><br>
-
-    <button type="submit">Submit</button>
-<br><br>
-
-<label for="password">Password:</label><br>
-<input type="password" id="password" name="password">
-
-<br><br>
-
-<label for="age">Age:</label><br>
-<input type="number" id="age" name="age">
-
-<br><br>
-
-<label for="date">Date:</label><br>
-<input type="date" id="date" name="date">
-
-<br><br>
-
-<label>
-    <input type="checkbox" name="coding">
-    I am learning coding
-</label>
-</form>
-  <hr>
-
-<h2>11. Semantic HTML</h2>
-
-<p>
-Semantic HTML gives meaning to different parts of a webpage.
-</p>
-
-<header>
-    <h3>TechNova Header</h3>
-</header>
-
-<nav>
-    <a href="#">Home</a> |
-    <a href="#">Courses</a> |
-    <a href="#">About</a>
-</nav>
-
-<main>
-
-    <section>
-        <h3>HTML Course</h3>
-        <p>Learn HTML step by step.</p>
     </section>
 
-</main>
 
-<footer>
-    <p>© 2026 TechNova</p>
-</footer>
-  <hr>
+    <!-- COURSES -->
 
-<h2>12. HTML Comments</h2>
+    <section id="courses">
 
-<p>
-Comments are notes written inside HTML code. They are not displayed on the webpage.
-</p>
+        <div class="section-title">
 
-<!-- This is an HTML comment -->
+            <h2>Our Courses</h2>
 
-<p>
-The comment above will not appear on the webpage.
-</p>
-  <hr>
+            <p>
+                Learn technology from basics to advanced concepts.
+            </p>
 
-<h2>13. HTML Audio and Video</h2>
+        </div>
 
-<p>
-HTML can be used to add audio and video to a webpage.
-</p>
 
-<h3>Audio</h3>
+        <div class="courses">
 
-<audio controls>
-    <source src="audio.mp3" type="audio/mpeg">
-    Your browser does not support audio.
-</audio>
 
-<h3>Video</h3>
+            <!-- HTML -->
 
-<video width="400" controls>
-    <source src="video.mp4" type="video/mp4">
-    Your browser does not support video.
-</video>
-  <hr>
+            <div class="card">
 
-<h2>14. HTML Div</h2>
+                <div class="card-icon">
+                    🌐
+                </div>
 
-<p>
-The div element is used to group and organize HTML content.
-</p>
+                <h3>HTML</h3>
 
-<div>
-    <h3>HTML Course</h3>
-    <p>Learn HTML step by step with TechNova.</p>
-</div>
+                <p>
+                    Learn the structure of websites
+                    step by step from beginner level.
+                </p>
 
-<div>
-    <h3>CSS Course</h3>
-    <p>Learn CSS and make websites beautiful.</p>
-</div>
-  <h3 id="javascript-course">JavaScript Course</h3>
-<p>Learn JavaScript and add functionality to websites.</p>
-<hr>
+                <a href="html1.html" class="card-btn">
+                    Start HTML →
+                </a>
 
-<h2>16. HTML Buttons</h2>
+            </div>
 
-<p>
-Buttons are used to let users perform an action on a webpage.
-</p>
 
-<button>Click Me</button>
+            <!-- CSS -->
 
-<button>Start Learning</button>
+            <div class="card">
 
-<button>Learn HTML</button>
-  <hr>
+                <div class="card-icon">
+                    🎨
+                </div>
 
-<h2>17. HTML Dropdown</h2>
+                <h3>CSS</h3>
 
-<p>
-A dropdown allows users to select an option from a list.
-</p>
+                <p>
+                    Learn how to make websites
+                    beautiful, modern and responsive.
+                </p>
 
-<label for="course">Choose a course:</label>
+                <a href="#" class="card-btn">
+                    Coming Soon →
+                </a>
 
-<select id="course">
-    <option>HTML</option>
-    <option>CSS</option>
-    <option>JavaScript</option>
-    <option>Web Development</option>
-</select>
-  <hr>
+            </div>
 
-<h2>20. HTML Entities</h2>
 
-<p>
-HTML entities are used to display special characters.
-</p>
+            <!-- JAVASCRIPT -->
 
-<p>&copy; 2026 TechNova</p>
+            <div class="card">
 
-<p>5 &lt; 10</p>
+                <div class="card-icon">
+                    ⚡
+                </div>
 
-<p>10 &gt; 5</p>
+                <h3>JavaScript</h3>
 
-<p>HTML &amp; CSS</p>
-  <hr>
+                <p>
+                    Learn programming and add
+                    powerful interactions to websites.
+                </p>
 
-<h2>21. HTML Figure and Caption</h2>
+                <a href="#" class="card-btn">
+                    Coming Soon →
+                </a>
 
-<p>
-The figure element is used to group an image with its caption.
-</p>
+            </div>
 
-<figure>
 
-    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-         alt="Google Logo"
-         width="300">
+            <!-- GITHUB -->
 
-    <figcaption>Example of an image with a caption.</figcaption>
+            <div class="card">
 
-</figure>
-  <hr>
+                <div class="card-icon">
+                    🚀
+                </div>
 
-<h2>22. Ordered List Types</h2>
+                <h3>Git & GitHub</h3>
 
-<p>
-Ordered lists can use different numbering styles.
-</p>
+                <p>
+                    Learn how to manage projects
+                    and publish websites online.
+                </p>
 
-<h3>Numbers</h3>
+                <a href="#" class="card-btn">
+                    Coming Soon →
+                </a>
 
-<ol type="1">
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-</ol>
+            </div>
 
-<h3>Capital Letters</h3>
+        </div>
 
-<ol type="A">
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-</ol>
+    </section>
 
-<h3>Roman Numbers</h3>
 
-<ol type="I">
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-</ol>
-  <hr>
+    <!-- FEATURES -->
 
-<h2>23. HTML Quotes</h2>
+    <section>
 
-<p>
-The q element is used for a short quotation.
-</p>
+        <div class="section-title">
 
-<p>
-TechNova says, <q>Keep learning and keep building.</q>
-</p>
+            <h2>Why TechNova?</h2>
 
-<p>
-The blockquote element is used for a longer quotation.
-</p>
+            <p>
+                Simple learning. Practical projects.
+            </p>
 
-<blockquote>
-Learning to code is a journey. Practice every day, build small projects,
-and improve step by step.
-</blockquote>
-  <hr>
+        </div>
 
-<h2>24. HTML Details and Summary</h2>
 
-<p>
-Click the question below to see the answer.
-</p>
+        <div class="features">
 
-<details>
-    <summary>What is HTML?</summary>
-    <p>HTML is used to create the structure of a webpage.</p>
-</details>
+            <div class="feature">
 
-<br>
+                <div>📚</div>
 
-<details>
-    <summary>What is CSS?</summary>
-    <p>CSS is used to style and design a webpage.</p>
-</details>
+                <h3>Step by Step</h3>
 
-<br>
+                <p>
+                    Learn one concept at a time.
+                </p>
 
-<details>
-    <summary>What is JavaScript?</summary>
-    <p>JavaScript is used to add functionality and interaction to a webpage.</p>
-</details>
-  <hr>
+            </div>
 
-<h2>25. HTML Progress and Meter</h2>
 
-<h3>Course Progress</h3>
+            <div class="feature">
 
-<label for="progress">HTML Course:</label><br>
+                <div>💻</div>
 
-<progress id="progress" value="70" max="100"></progress>
+                <h3>Practice</h3>
 
-<p>70% completed</p>
+                <p>
+                    Learn by writing real code.
+                </p>
 
-<h3>Skill Level</h3>
+            </div>
 
-<label for="skill">HTML Skill:</label><br>
 
-<meter id="skill" value="7" min="0" max="10"></meter>
+            <div class="feature">
 
-<p>7 out of 10</p>
-  <hr>
+                <div>🚀</div>
 
-<h2>26. HTML Input Types</h2>
+                <h3>Build Projects</h3>
 
-<h3>Name</h3>
+                <p>
+                    Turn your knowledge into projects.
+                </p>
 
-<input type="text" placeholder="Enter your name">
+            </div>
 
-<h3>Email</h3>
 
-<input type="email" placeholder="Enter your email">
+            <div class="feature">
 
-<h3>Password</h3>
+                <div>🌎</div>
 
-<input type="password" placeholder="Enter your password">
+                <h3>Learn Anywhere</h3>
 
-<h3>Date</h3>
+                <p>
+                    Access TechNova from any device.
+                </p>
 
-<input type="date">
+            </div>
 
-<h3>Time</h3>
+        </div>
 
-<input type="time">
+    </section>
 
-<h3>Choose a Color</h3>
 
-<input type="color">
+    <!-- ABOUT -->
 
-<h3>Choose a Number</h3>
+    <section id="about">
 
-<input type="number" min="1" max="100">
-  <hr>
+        <div class="about">
 
-<h2>27. HTML Forms</h2>
+            <h2>About TechNova</h2>
 
-<p>
-Forms are used to collect information from users.
-</p>
+            <p>
+                TechNova is a learning platform created to make
+                technology easier to understand.
+                Start with HTML, continue with CSS and JavaScript,
+                and gradually build real-world projects.
+            </p>
 
-<form>
+        </div>
 
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" placeholder="Enter your name">
-    <br><br>
+    </section>
 
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" placeholder="Enter your email">
-    <br><br>
 
-    <label for="message">Message:</label><br>
-    <textarea id="message" name="message" rows="5" cols="30"
-        placeholder="Write your message"></textarea>
-    <br><br>
+    <!-- FOOTER -->
 
-    <button type="submit">Submit</button>
+    <footer>
 
-</form>
-  <hr>
+        <p>
+            © 2026 <strong>TechNova</strong>.
+            Learn. Build. Grow.
+        </p>
 
-<h2>28. Radio Buttons and Checkboxes</h2>
+    </footer>
 
-<h3>Choose your level</h3>
-
-<input type="radio" id="beginner" name="level" value="beginner">
-<label for="beginner">Beginner</label>
-
-<br>
-
-<input type="radio" id="intermediate" name="level" value="intermediate">
-<label for="intermediate">Intermediate</label>
-
-<br>
-
-<input type="radio" id="advanced" name="level" value="advanced">
-<label for="advanced">Advanced</label>
-
-
-<h3>Choose your skills</h3>
-
-<input type="checkbox" id="html" name="skill" value="HTML">
-<label for="html">HTML</label>
-
-<br>
-
-<input type="checkbox" id="css" name="skill" value="CSS">
-<label for="css">CSS</label>
-
-<br>
-
-<input type="checkbox" id="javascript" name="skill" value="JavaScript">
-<label for="javascript">JavaScript</label>
-  <hr>
-
-<h2>29. Multiple Selection</h2>
-
-<p>
-Hold the Ctrl key on a computer to select multiple courses.
-</p>
-
-<label for="courses">Choose your courses:</label><br><br>
-
-<select id="courses" name="courses" multiple size="4">
-
-    <option>HTML</option>
-    <option>CSS</option>
-    <option>JavaScript</option>
-    <option>Web Development</option>
-    <option>Python</option>
-    <option>GitHub</option>
-
-</select>
-  <hr>
-
-<h2>30. HTML Fieldset and Legend</h2>
-
-<form>
-
-    <fieldset>
-
-        <legend>Personal Information</legend>
-
-        <label for="fullname">Full Name:</label><br>
-        <input type="text" id="fullname" placeholder="Enter your name">
-
-        <br><br>
-
-        <label for="useremail">Email:</label><br>
-        <input type="email" id="useremail" placeholder="Enter your email">
-
-    </fieldset>
-
-    <br>
-
-    <fieldset>
-
-        <legend>Course Selection</legend>
-
-        <label for="course-select">Choose a course:</label><br>
-
-        <select id="course-select">
-            <option>HTML</option>
-            <option>CSS</option>
-            <option>JavaScript</option>
-        </select>
-
-    </fieldset>
-
-</form>
-  <hr>
-
-<h2>31. HTML Labels and Accessibility</h2>
-
-<p>
-Labels help users understand what information should be entered.
-</p>
-
-<label for="student-name">Student Name:</label>
-<input type="text" id="student-name" placeholder="Enter your name">
-
-<br><br>
-
-<label for="student-email">Student Email:</label>
-<input type="email" id="student-email" placeholder="Enter your email">
-
-<br><br>
-
-<label for="student-age">Student Age:</label>
-<input type="number" id="student-age" min="1" max="100">
 </body>
 
-    </html>
+</html>
